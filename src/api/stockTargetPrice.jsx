@@ -2,11 +2,11 @@ import React from "react";
 import axios from "axios";
 import apiconfig from "../apiconfig";
 
-const stockDtls = async () => {
+const stockTargetPrice = async () => {
   try {
-    const stockDtlsData = await axios.get(`${apiconfig.BASE_URL}/stock`, {
+    const stockTargetPriceData = await axios.get(`${apiconfig.BASE_URL}/stock_target_price`, {
       params: {
-        name: "Swiggy",
+        stock_id: "INFY",
       },
       headers: {
         "Content-Type": "application/json",
@@ -17,4 +17,4 @@ const stockDtls = async () => {
   } catch (error) {}
 };
 
-export default stockDtls;
+export default stockTargetPrice;

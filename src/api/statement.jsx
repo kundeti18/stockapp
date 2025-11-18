@@ -10,6 +10,7 @@ const statement = async () => {
         stats: "balancesheet",
       },
       headers: {
+        "Content-Type": "application/json",
         'Authorization': `Bearer ${apiconfig.API_KEY}`,
         'x-api-key': `${apiconfig.API_KEY}`,
       },

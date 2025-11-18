@@ -2,12 +2,9 @@ import React from "react";
 import axios from "axios";
 import apiconfig from "../apiconfig";
 
-const stockDtls = async () => {
+const fetch52WeekHighLow = async () => {
   try {
-    const stockDtlsData = await axios.get(`${apiconfig.BASE_URL}/stock`, {
-      params: {
-        name: "Swiggy",
-      },
+    const fetch52WeekHighLowData = await axios.get(`${apiconfig.BASE_URL}/fetch_52_week_high_low_data`, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${apiconfig.API_KEY}`,
@@ -17,4 +14,4 @@ const stockDtls = async () => {
   } catch (error) {}
 };
 
-export default stockDtls;
+export default fetch52WeekHighLow;

@@ -1,29 +1,31 @@
-import React from 'react'
-import { useState } from 'react';
-import axios from 'axios'; 
-import apiconfig from '../apiconfig';
+import React from "react";
+import { useState } from "react";
+import axios from "axios";
+import apiconfig from "../apiconfig";
 
-const historicalData = async () =>  {
-      try {
-      const response = await axios.get(`${apiconfig.BASE_URL}/historical_data`,{
+const historicalData = async () => {
+  try {
+    const historicalData = await axios.get(`${apiconfig.BASE_URL}/historical_data`,
+      {
         params: {
-          stock_name: 'NSDL',
-          period: '5yr',
-          filter: 'price'
+          stock_name: "NSDL",
+          period: "5yr",
+          filter: "price",
         },
         headers: {
-          'Authorization': `Bearer ${apiconfig.API_KEY}`,
-          'x-api-key': `${apiconfig.API_KEY}`
-        }
-      });
-      return response;
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiconfig.API_KEY}`,
+          "x-api-key": `${apiconfig.API_KEY}`,
+        },
       }
-      catch (err) {
-        return err;
-      }
-    //   finally {
-    //     setLoading(false);
-    //   }
-}
+    );
+    return response;
+  } catch (err) {
+    return err;
+  }
+  //   finally {
+  //     setLoading(false);
+  //   }
+};
 
-export default historicalData
+export default historicalData;
